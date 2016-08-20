@@ -143,8 +143,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         RuleManager.currentManager = configuration.ruleManager
         let proxyPort = configuration.proxyPort ?? 9090
 
-        let httpServer = GCDHTTPProxyServer(address: IPv4Address(fromString: "127.0.0.1"), port: Port(port: UInt16(proxyPort)))
-        let socks5Server = GCDSOCKS5ProxyServer(address: IPv4Address(fromString: "127.0.0.1"), port: Port(port: UInt16(proxyPort + 1)))
+        let httpServer = GCDHTTPProxyServer(address: nil, port: Port(port: UInt16(proxyPort)))
+        let socks5Server = GCDSOCKS5ProxyServer(address: nil, port: Port(port: UInt16(proxyPort + 1)))
 
         do {
             try httpServer.start()
